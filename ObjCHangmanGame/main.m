@@ -51,7 +51,22 @@ void printWord(NSString *word, NSMutableArray<NSString*> *usedLetters) {
 
 int main(int argc, const char * argv[]) {
   @autoreleasepool {
-    NSString *word = @"RYTHM";
+
+    NSArray *array = [NSArray arrayWithObjects:
+                      @"RYTHM",
+                      @"SWIFT",
+                      @"THREE",
+                      @"MAIN",
+                      @"MAIL",
+                      @"POOL",
+                      @"STRING",
+                      @"WINTER",
+                      @"LOVE",
+                      @"DALEK",
+                      nil];
+    uint32_t rnd = arc4random_uniform([array count]);
+
+    NSString *word = [array objectAtIndex:rnd];
     NSMutableArray<NSString *> *usedLetters = [NSMutableArray arrayWithCapacity:8];
     printf("Welcome to Hangman!\n");
     printf("Press a letter to guess, or Ctrl+C to quit.\n");
